@@ -4,7 +4,7 @@
 
 <div class="d-flex justify-content-between mb-3">
     <h2>Minhas Tarefas</h2>
-    <a href="/create/" class="btn btn-primary">+ Nova Tarefa</a>
+    <a href="create" class="btn btn-primary">+ Nova Tarefa</a>
 </div>
 
 <table class="table table-striped">
@@ -32,8 +32,9 @@
             </td>
 
             <td>
-                <a href="/update/{{ task.id }}" class="btn btn-sm btn-warning">Editar</a>
-                <a href="/delete/{{ task.id }}" class="btn btn-sm btn-danger">Excluir</a>
+                <a href="/update/{{ task.id }}" class="btn btn-sm btn-outline-dark me-2">Editar</a>
+
+                <a href="/delete/{{ task.id }}" class="btn btn-sm btn-outline-dark">Excluir</a>
             </td>
         </tr>
         {% endfor %}
