@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between mb-3">
+    <h2>Minhas Tarefas</h2>
+    <a href="/create/" class="btn btn-primary">+ Nova Tarefa</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+
+            <td>
+                {% if task.completed %}
+                    <span class="badge bg-success">Concluída</span>
+                {% else %}
+                    <span class="badge bg-warning">Pendente</span>
+                {% endif %}
+            </td>
+
+            <td>
+                <a href="/update/{{ task.id }}" class="btn btn-sm btn-warning">Editar</a>
+                <a href="/delete/{{ task.id }}" class="btn btn-sm btn-danger">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
